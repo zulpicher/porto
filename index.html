@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muhammad Zulfikar – Portfolio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* DESIGN TOKENS*/
+    :root {
+      --blue-main:  #1a35e8;
+      --blue-dark:  #0f1f99;
+      --blue-light: #4d6bff;
+      --bg-white:   #ffffff;
+      --text-dark:  #0a0f3d;
+      --text-muted: #6b7cc4;
+      --white:      #ffffff;
+    }
+
+    /*BASE*/
+    * {
+      scroll-behavior: smooth;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(176deg, #c9d4ff 0%, var(--bg-white) 60%);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /*NAVBAR*/
+    #mainNav {
+      background: var(--blue-main);
+      border-radius: 50px;
+      margin: 16px 60px;
+      padding: 10px 28px;
+      position: sticky;
+      top: 16px;
+      z-index: 999;
+      box-shadow: 0 4px 30px rgba(26, 53, 232, .35);
+    }
+
+    #mainNav .navbar-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: .9rem;
+      color: var(--white) !important;
+      letter-spacing: .06em;
+    }
+
+    #mainNav .nav-link {
+      color: var(--white) !important;
+      font-weight: 600;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      padding: 6px 12px;
+      border-radius: 30px;
+      transition: background .25s;
+      white-space: nowrap;
+    }
+
+    #mainNav .nav-link:hover,
+    #mainNav .nav-link.active {
+      background: rgba(255, 255, 255, .18);
+    }
+
+    #mainNav .dropdown-menu {
+      background: var(--blue-dark);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 16px;
+      padding: 8px;
+      min-width: 200px;
+      box-shadow: 0 8px 32px rgba(10,15,61,.4);
+      margin-top: 8px;
+    }
+
+    #mainNav .dropdown-item {
+      color: rgba(255,255,255,.85);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: .78rem;
+      border-radius: 10px;
+      padding: 8px 14px;
+      transition: background .2s;
+    }
+
+    #mainNav .dropdown-item:hover {
+      background: rgba(255,255,255,.15);
+      color: #fff;
+    }
+
+    #mainNav .dropdown-item i {
+      width: 18px;
+    }
+
+    #mainNav .dropdown-divider {
+      border-color: rgba(255,255,255,.15);
+      margin: 4px 6px;
+    }
+
+    #mainNav .dropdown-toggle::after {
+      border-top-color: rgba(255,255,255,.7);
+    }
+
+    #mainNav .navbar-toggler        { border: none; }
+    #mainNav .navbar-toggler-icon   { filter: invert(1); }
+
+    /*HERO */
+    #home {
+      min-height: 100vh;
+      background: linear-gradient(176deg, #c9d4ff 0%, var(--bg-white) 60%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26, 53, 232, .12) 0%, transparent 70%);
+      top: -120px;
+      right: -80px;
+      pointer-events: none;
+    }
+
+    .hero-photo-wrap {
+      background: var(--blue-main);
+      border-radius: 40px;
+      overflow: hidden;
+      width: 340px;
+      height: 420px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      box-shadow: 8px 12px 40px rgba(26, 53, 232, .30);
+      flex-shrink: 0;
+    }
+
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .hero-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .4);
+      font-size: 6rem;
+    }
+
+    .hero-name {
+      font-weight: 900;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--blue-main);
+      line-height: 1.15;
+    }
+
+    .hero-roles {
+      color: #5a6fcc;
+      font-size: .88rem;
+      font-weight: 500;
+    }
+
+    .hero-tagline {
+      color: var(--blue-dark);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--blue-main);
+      color: #fff;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: transform .2s, background .2s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(26, 53, 232, .35);
+    }
+
+    .social-btn:hover {
+      background: var(--blue-dark);
+      color: #fff;
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(26, 53, 232, .5);
+    }
+
+    .btn-cv {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 26px;
+      border-radius: 30px;
+      background: var(--blue-main);
+      color: #fff;
+      font-weight: 700;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: all .25s ease;
+      box-shadow: 0 4px 14px rgba(26,53,232,.3);
+    }
+
+    .btn-cv:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(26,53,232,.4);
+    }
+
+    /*SECTION BASE*/
+    section { padding: 90px 0; }
+
+    .section-title {
+      font-weight: 900;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--blue-main);
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--blue-main);
+      border-radius: 2px;
+      margin-top: 10px;
+    }
+
+    /*ABOUT */
+    #about { background: var(--bg-white); }
+
+    .about-text {
+      font-size: .97rem;
+      line-height: 1.9;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .btn-design-portfolio {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 28px;
+      border-radius: 30px;
+      background: transparent;
+      color: var(--blue-main);
+      border: 2px solid var(--blue-main);
+      font-weight: 700;
+      font-size: .88rem;
+      text-decoration: none;
+      transition: all .25s ease;
+      margin-top: 20px;
+    }
+
+    .btn-design-portfolio:hover {
+      background: var(--blue-main);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(26,53,232,.3);
+    }
+
+    .skills-card {
+      background: var(--blue-main);
+      border-radius: 24px;
+      padding: 36px 40px;
+      color: #fff;
+    }
+
+    .skills-card h5 { font-weight: 800; }
+
+    .skill-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, .18);
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 30px;
+      padding: 5px 16px;
+      font-size: .78rem;
+      font-weight: 700;
+      margin: 4px;
+      letter-spacing: .03em;
+      transition: background .2s;
+    }
+
+    .skill-badge:hover { background: rgba(255, 255, 255, .32); }
+
+    /*ACHIEVEMENT*/
+    #achievment { background: var(--bg-white); }
+
+    .achieve-card {
+      border: 2px solid var(--blue-main);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+      height: 100%;
+    }
+
+    .achieve-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(26, 53, 232, .18);
+    }
+
+    .achieve-img-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      overflow: hidden;
+    }
+
+    .achieve-img-wrap img,
+    .achieve-img-wrap .achieve-card-img-placeholder {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .achieve-card-img-placeholder {
+      background: linear-gradient(135deg, #c9d4ff, #4d6bff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .achieve-body { padding: 24px; }
+
+    .achieve-card h5 {
+      font-weight: 800;
+      color: var(--blue-main);
+      font-size: .95rem;
+    }
+
+    /*PROJECT SECTION */
+    #project { background: var(--bg-white); }
+
+    .project-card-horizontal {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      background: var(--bg-white);
+      border: 1.5px solid #e0e5ff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(26, 53, 232, .07);
+      transition: transform .25s ease, box-shadow .25s ease;
+      padding: 20px;
+      height: 100%;
+    }
+
+    .project-card-horizontal:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(26, 53, 232, .20);
+    }
+
+    .project-img-wrap-horizontal {
+      position: relative;
+      width: 190px;
+      min-width: 190px;
+      height: 268px;
+      overflow: hidden;
+      border-radius: 0px;
+      flex-shrink: 0;
+    }
+
+    .project-img-wrap-horizontal img,
+    .project-img-wrap-horizontal .project-card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .project-card-img-placeholder {
+      background: var(--blue-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .5);
+      font-size: 3rem;
+    }
+
+    .project-body-horizontal {
+      flex: 1;
+      padding: 4px 6px;
+    }
+
+    .project-body-horizontal h5 {
+      font-weight: 800;
+      color: var(--blue-main);
+      font-size: 1.05rem;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .project-body-horizontal p {
+      font-size: .88rem;
+      color: var(--text-dark);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8ecff;
+      color: var(--blue-main);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: .75rem;
+      font-weight: 700;
+      margin: 4px 6px 0 0;
+    }
+
+    @media (max-width: 768px) {
+      .project-card-horizontal {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+      }
+
+      .project-img-wrap-horizontal {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1.41;
+      }
+
+      .project-body-horizontal {
+        width: 100%;
+        padding: 0;
+      }
+    }
+
+    /*EDUCATION */
+    #education { background: var(--bg-white); }
+
+    .edu-card {
+      border: 2px solid #e0e5ff;
+      border-radius: 20px;
+      padding: 28px 32px;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+      height: 100%;
+    }
+
+    .edu-card:hover {
+      border-color: var(--blue-main);
+      box-shadow: 0 10px 30px rgba(26, 53, 232, .12);
+      transform: translateY(-4px);
+    }
+
+    .edu-icon {
+      width: 67px;
+      height: 67px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--blue-main);
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+
+    .edu-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .edu-card h5 {
+      font-weight: 800;
+      color: var(--text-dark);
+      font-size: .97rem;
+      margin-bottom: 4px;
+    }
+
+    .edu-card .edu-major {
+      color: var(--blue-main);
+      font-weight: 700;
+      font-size: .88rem;
+    }
+
+    .edu-card .edu-period {
+      font-size: .78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .edu-card .edu-score {
+      display: inline-block;
+      background: #e8ecff;
+      color: var(--blue-main);
+      border-radius: 20px;
+      padding: 3px 14px;
+      font-size: .78rem;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+
+    /*EXPERIENCE & ORGANIZATION */
+    #experience { background: var(--bg-white); }
+
+    .exp-section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8ecff;
+      color: var(--blue-main);
+      border-radius: 30px;
+      padding: 6px 20px;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+
+    .exp-divider {
+      border: none;
+      border-top: 2px dashed #e0e5ff;
+      margin: 48px 0 44px;
+    }
+
+    .tl-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 6px;
+    }
+
+    .company-logo {
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+    }
+
+    .company-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.15));
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 36px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--blue-main), #c9d4ff);
+      border-radius: 2px;
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 44px;
+    }
+
+    .tl-item:last-child { margin-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: -31px;
+      top: 5px;
+      width: 18px;
+      height: 18px;
+      background: var(--blue-main);
+      border: 3px solid var(--bg-white);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(26, 53, 232, .2);
+    }
+
+    .tl-item h5 {
+      font-weight: 800;
+      color: var(--text-dark);
+      font-size: .97rem;
+      margin-bottom: 2px;
+    }
+
+    .tl-item .tl-org {
+      font-weight: 700;
+      color: var(--blue-main);
+      font-size: .88rem;
+    }
+
+    .tl-item .tl-period {
+      font-size: .78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .tl-item ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .tl-item ul li {
+      font-size: .88rem;
+      line-height: 1.75;
+      color: var(--text-dark);
+    }
+
+    .tl-item p {
+      font-size: .88rem;
+      line-height: 1.75;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    /*OTHER / CONTACT */
+    #contact { background: var(--blue-main); }
+
+    #contact .section-title        { color: #fff; }
+    #contact .section-title::after { background: rgba(255, 255, 255, .5); }
+
+    .contact-card {
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 20px;
+      padding: 28px 32px;
+      color: #fff;
+    }
+
+    .contact-card h5 { font-weight: 800; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .contact-item i { font-size: 1.4rem; }
+
+    .contact-item a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-item a:hover { text-decoration: underline; }
+
+    .btn-outline-white {
+      border: 2px solid #fff;
+      color: #fff;
+      background: transparent;
+      border-radius: 30px;
+      padding: 10px 28px;
+      font-weight: 700;
+      font-size: .88rem;
+      font-family: 'Montserrat', sans-serif;
+      transition: background .2s, color .2s;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn-outline-white:hover {
+      background: #fff;
+      color: var(--blue-main);
+    }
+
+    /*FOOTER*/
+    footer {
+      background: var(--blue-dark);
+      color: rgba(255, 255, 255, .6);
+      text-align: center;
+      padding: 18px 0;
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    /*SCROLL REVEAL*/
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /*RESPONSIVE*/
+    @media (max-width: 768px) {
+      #home {
+        min-height: auto;
+        padding: 100px 0 60px;
+      }
+      #mainNav { margin: 12px 14px; }
+      .hero-photo-wrap { width: 220px; height: 270px; }
+    }
+  </style>
+</head>
+<body>
+
+<!--NAVBAR -->
+<nav id="mainNav" class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="#home">ZULPICHER</a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav gap-1 align-items-center">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+        <li class="nav-item"><a class="nav-link" href="#achievment">Achievement</a></li>
+
+        <!-- Project dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#project" id="projectDropdown"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Project
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="projectDropdown">
+            <li>
+              <a class="dropdown-item" href="#project">
+                <i class="bi bi-grid-3x3-gap me-2"></i>Tech Projects
+
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"/></li>
+            <li>
+              <a class="dropdown-item" href="design.html" target="_blank">
+                <i class="bi bi-palette2 me-2"></i>Design Portfolio
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#content">Content</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+<!--HERO-->
+<section id="home">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+
+      <div class="col-md-5 d-flex justify-content-center justify-content-md-start reveal">
+        <div class="hero-photo-wrap">
+          <img src="static/img/zul.png" alt="Muhammad Zulfikar"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+          <div class="hero-photo-placeholder" style="display:none;">
+            <i class="bi bi-person-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7 reveal" style="transition-delay:.15s">
+        <p class="mb-1" style="color:#5a6fcc; font-weight:600; font-size:.82rem; letter-spacing:.12em;">
+          WELCOME TO MY PORTFOLIO
+        </p>
+        <h1 class="hero-name mb-2">MUHAMMAD ZULFIKAR RUSIDI HASIBUAN</h1>
+        <p class="hero-roles mb-1">
+          Web Developer | Network Engineer | Penetration Testing | IoT Developer
+        </p>
+        <p class="hero-tagline mb-4">
+          Cybersecurity Engineering Student at Batam State Polytechnic
+        </p>
+
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="mailto:m.zulfikarrusidi@gmail.com" class="social-btn" title="Email">
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/zulfikar-rusidi" target="_blank" class="social-btn" title="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://github.com/zulpicher" target="_blank" class="social-btn" title="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+
+        <div class="mt-4">
+          <a href="static/pdf/cv zulfikar rusidi.pdf" download class="btn-cv">
+            <i class="bi bi-download me-2"></i>Download CV
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--ABOUT ME-->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title reveal">ABOUT ME</h2>
+    <div class="row gy-4">
+
+      <div class="col-lg-7 reveal">
+        <p class="about-text">
+          I am a Cybersecurity Engineering student at <strong>Politeknik Negeri Batam</strong>
+          with a strong passion for Network Security, Penetration Testing, Web Development, and
+          IoT Development. I enjoy exploring both offensive and defensive aspects of cybersecurity,
+          and currently focus on developing my skills in SOC operations, backend development,
+          and system administration.
+        </p>
+        <p class="about-text mt-3">
+          Outside of cybersecurity, I am also an experienced <strong>graphic designer</strong>
+          who has contributed to various organizations, team projects, and competitions,
+          allowing me to combine technical and creative skills.
+        </p>
+
+        <!-- Tombol Design Portfolio -->
+        <a href="design.html" class="btn-design-portfolio">
+          <i class="bi bi-palette2"></i> View My Design Portfolio
+        </a>
+      </div>
+
+      <div class="col-lg-5 reveal" style="transition-delay:.15s">
+        <div class="skills-card">
+          <h5 class="mb-3">Technical Skills</h5>
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">JavaScript</span>
+          <span class="skill-badge">PHP</span>
+          <span class="skill-badge">Linux</span>
+          <span class="skill-badge">Kali Linux</span>
+          <span class="skill-badge">Wireshark</span>
+          <span class="skill-badge">Metasploit</span>
+          <span class="skill-badge">Bootstrap</span>
+          <span class="skill-badge">MySQL</span>
+          <span class="skill-badge">Cisco</span>
+          <span class="skill-badge">Arduino</span>
+          <span class="skill-badge">Figma</span>
+          <span class="skill-badge">Adobe PS</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--ACHIEVEMENT-->
+<section id="achievment">
+  <div class="container">
+    <h2 class="section-title reveal">ACHIEVEMENT</h2>
+    <div class="row gy-4">
+
+      <div class="col-md-4 reveal">
+        <div class="achieve-card">
+          <div class="achieve-img-wrap">
+            <img src="static/img/pblexpo.jpeg" alt="PBL EXPO"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="achieve-card-img-placeholder" style="display:none;">
+              <i class="bi bi-trophy-fill"></i>
+            </div>
+          </div>
+          <div class="achieve-body">
+            <h5>3rd Place – PBL EXPO 2024</h5>
+            <p class="mb-0 text-muted" style="font-size:.87rem; line-height:1.65;">
+              PBL EXPO Polibatam 2024 – Cybersecurity and networking category
+              at Politeknik Negeri Batam.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal" style="transition-delay:.1s">
+        <div class="achieve-card">
+          <div class="achieve-img-wrap">
+            <img src="static/img/pkm.jpg" alt="PKM"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="achieve-card-img-placeholder" style="display:none;">
+              <i class="bi bi-award-fill"></i>
+            </div>
+          </div>
+          <div class="achieve-body">
+            <h5>Pendanaan – PKM KC 2024</h5>
+            <p class="mb-0 text-muted" style="font-size:.87rem; line-height:1.65;">
+              Awarded Program Kreatifitas Mahasiswa (PKM) Karsa Cipta (KC) Scheme
+              by Kemendikbutristek 2024.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal" style="transition-delay:.2s">
+        <div class="achieve-card">
+          <div class="achieve-img-wrap">
+            <img src="static/img/pimnas.jpeg" alt="Pimnas"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="achieve-card-img-placeholder" style="display:none;">
+              <i class="bi bi-patch-check-fill"></i>
+            </div>
+          </div>
+          <div class="achieve-body">
+            <h5>Pimnas 37 Finalist</h5>
+            <p class="mb-0 text-muted" style="font-size:.87rem; line-height:1.65;">
+              Finalist Pekan Ilmiah Mahasiswa Nasional (PIMNAS) 37 in Universitas Airlangga by Puspernas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal" style="transition-delay:.2s">
+        <div class="achieve-card">
+          <div class="achieve-img-wrap">
+            <img src="static/img/awarding night.jpeg" alt="Awarding Night"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="achieve-card-img-placeholder" style="display:none;">
+              <i class="bi bi-patch-check-fill"></i>
+            </div>
+          </div>
+          <div class="achieve-body">
+            <h5>Awarding Night Politernik Negeri Batam 2024</h5>
+            <p class="mb-0 text-muted" style="font-size:.87rem; line-height:1.65;">
+              Academic Excellence Award for Politernik Negeri Batam Students.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PROJECT-->
+<section id="project">
+  <div class="container">
+    <h2 class="section-title reveal">PROJECT</h2>
+    <div class="row gy-4">
+
+      <div class="col-12 reveal">
+        <div class="project-card-horizontal">
+          <div class="project-img-wrap-horizontal">
+            <img src="static/img/poster/sem6.png" alt="VAPT"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="project-card-img-placeholder" style="display:none;">
+            </div>
+          </div>
+          <div class="project-body-horizontal">
+            <h5>Mobile Application Vulnerability Assessment &amp; Penetration Testing</h5>
+            <p>
+              Conducted mobile application security testing based on OWASP MASTG standards,
+              identified vulnerabilities, and provided remediation recommendations for clients.
+            </p>
+            <span class="tag">VAPT</span>
+            <span class="tag">OWASP</span>
+            <span class="tag">Mobile Security</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 reveal">
+        <div class="project-card-horizontal">
+          <div class="project-img-wrap-horizontal">
+            <img src="static/img/poster/sem5.png" alt="RTLS"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="project-card-img-placeholder" style="display:none;">
+            </div>
+          </div>
+          <div class="project-body-horizontal">
+            <h5>Real-Time Location System (RTLS)</h5>
+            <p>
+              Developed a wireless communication-based tracking system for real-time asset location monitoring,
+              integrating smart tag devices, Firebase cloud services, and a web dashboard.
+            </p>
+            <span class="tag">IoT</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Wireless</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 reveal">
+        <div class="project-card-horizontal">
+          <div class="project-img-wrap-horizontal">
+            <img src="static/img/poster/sem4.png" alt="SOC 409"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="project-card-img-placeholder" style="display:none;">
+            </div>
+          </div>
+          <div class="project-body-horizontal">
+            <h5>Game-Based SOC Simulation – SOC 409</h5>
+            <p>
+              Developed a game-based SOC simulation platform for attack and defense scenarios,
+              including incident detection, response workflows, and strategy evaluation.
+            </p>
+            <span class="tag">SOC</span>
+            <span class="tag">SIEM</span>
+            <span class="tag">Simulation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 reveal">
+        <div class="project-card-horizontal">
+          <div class="project-img-wrap-horizontal">
+            <img src="static/img/poster/PIMNAS 37.png" alt="IoT Heart Monitor"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="project-card-img-placeholder" style="display:none;">
+            </div>
+          </div>
+          <div class="project-body-horizontal">
+            <h5>IoT Heart Rate Monitor for Athletes</h5>
+            <p>
+              Developed an IoT-based real-time heart rate monitoring system for athletes
+              to support early detection of myocardial infarction risks during training sessions.
+            </p>
+            <span class="tag">IoT</span>
+            <span class="tag">ESP32</span>
+            <span class="tag">Healthcare</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 reveal">
+        <div class="project-card-horizontal">
+          <div class="project-img-wrap-horizontal">
+            <img src="static/img/poster/sem3.png" alt="SIEM SOC8"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="project-card-img-placeholder" style="display:none;">
+            </div>
+          </div>
+          <div class="project-body-horizontal">
+            <h5>Well-Architected SIEM – SOC 8</h5>
+            <p>
+              Designed and implemented a well-architected SIEM solution for Security Operations Center (SOC),
+              focusing on centralized log management, threat detection, and incident monitoring.
+            </p>
+            <span class="tag">SIEM</span>
+            <span class="tag">SOC</span>
+            <span class="tag">Log Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 reveal">
+        <div class="project-card-horizontal">
+          <div class="project-img-wrap-horizontal">
+            <img src="static/img/poster/sem2.png" alt="DDoSDefend Matrix"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="project-card-img-placeholder" style="display:none;">
+            </div>
+          </div>
+          <div class="project-body-horizontal">
+            <h5>DDoSDefend Matrix</h5>
+            <p>
+              Built a DDoS attack simulation environment using Slowloris and SYN Flood scripts,
+              tested in GNS3 to analyze network resilience and attack mitigation strategies.
+            </p>
+            <span class="tag">Python</span>
+            <span class="tag">GNS3</span>
+            <span class="tag">Network Security</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 reveal">
+        <div class="project-card-horizontal">
+          <div class="project-img-wrap-horizontal">
+            <img src="static/img/poster/sem1.jpeg" alt="Cryptography App"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="project-card-img-placeholder" style="display:none;">
+            </div>
+          </div>
+          <div class="project-body-horizontal">
+            <h5>Cryptography App</h5>
+            <p>
+              Developed a web-based application to demonstrate fundamental cryptography concepts,
+              including the implementation of the Caesar Cipher algorithm for both encryption
+              and decryption processes.
+            </p>
+            <span class="tag">Python</span>
+            <span class="tag">Cryptography</span>
+            <span class="tag">Web App</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 reveal">
+        <div class="project-card-horizontal">
+          <div class="project-img-wrap-horizontal">
+            <img src="static/img/LINE FOLLOWER.png" alt="ROBOCON 2021"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div class="project-card-img-placeholder" style="display:none;">
+            </div>
+          </div>
+          <div class="project-body-horizontal">
+            <h5>Line Follower Robot</h5>
+            <p>
+              Developed a Line follower Robot to Participate Battle Robotic Contest (ROBOCON) 2021 in Politeknik Negeri Batam by Himpunan Mahasiswa Teknik Elektro (HME).
+            </p>
+            <span class="tag">Arduino</span>
+            <span class="tag">Electrical</span>
+            <span class="tag">Mechanical</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--EDUCATION-->
+<section id="education">
+  <div class="container">
+    <h2 class="section-title reveal">EDUCATION</h2>
+    <div class="row gy-4">
+
+      <div class="col-md-6 reveal">
+        <div class="edu-card">
+          <div class="edu-icon">
+            <img src="static/img/logo/polibatam.png" alt="Polibatam">
+          </div>
+          <h5>Politeknik Negeri Batam</h5>
+          <div class="edu-major">Cybersecurity Engineering</div>
+          <div class="edu-period mt-1">
+            <i class="bi bi-calendar3 me-1"></i>Aug 2023 – Present
+          </div>
+          <span class="edu-score">GPA: 3.79 / 4.00</span>
+        </div>
+      </div>
+
+      <div class="col-md-6 reveal" style="transition-delay:.1s">
+        <div class="edu-card">
+          <div class="edu-icon">
+            <img src="static/img/logo/smkn3.png" alt="SMKN 3 Batam">
+          </div>
+          <h5>SMK Negeri 3 Batam</h5>
+          <div class="edu-major">Computer and Network Engineering</div>
+          <div class="edu-period mt-1">
+            <i class="bi bi-calendar3 me-1"></i>Jul 2020 – May 2023
+          </div>
+          <span class="edu-score">Final Score: 86.17</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--EXPERIENCE-->
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title reveal">EXPERIENCE</h2>
+
+    <!-- ── WORK EXPERIENCE ── -->
+    <div class="exp-section-label reveal">
+      <i class="bi bi-briefcase-fill"></i> Work Experience
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 reveal">
+        <div class="timeline">
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-header">
+              <div class="company-logo">
+                <img src="static/img/logo/varta.png" alt="Varta">
+              </div>
+              <div>
+                <h5>IT Support Intern</h5>
+                <div class="tl-org">PT. Varta Microbattery Indonesia Batamindo Industrial Park</div>
+                <div class="tl-period">
+                  <i class="bi bi-calendar3 me-1"></i>Jan 2022 – Apr 2022
+                </div>
+              </div>
+            </div>
+            <ul>
+              <li>Performed network configuration and troubleshooting</li>
+              <li>Assisted in fiber optic installation and maintenance</li>
+              <li>Conducted routine server maintenance and monitoring</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <hr class="exp-divider reveal"/>
+
+    <!-- ── ORGANIZATIONAL EXPERIENCE ── -->
+    <div class="exp-section-label reveal">
+      <i class="bi bi-people-fill"></i> Organizational Experience
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 reveal">
+        <div class="timeline">
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-header">
+              <div class="company-logo">
+                <img src="static/img/logo/mapala.png" alt="MAPALA">
+              </div>
+              <div>
+                <h5>Head of Media, Publication &amp; Information Division</h5>
+                <div class="tl-org">Mahasiswa Pencinta Alam (MAPALA) Politeknik Negeri Batam</div>
+                <div class="tl-period">
+                  <i class="bi bi-calendar3 me-1"></i>Feb 2024 – Feb 2026
+                </div>
+              </div>
+            </div>
+            <p>Led the media and publication division responsible for managing communications and social media.</p>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-header">
+              <div class="company-logo">
+                <img src="static/img/logo/osis.png" alt="OSIS">
+              </div>
+              <div>
+                <h5>Head of Information &amp; Communication Media Division</h5>
+                <div class="tl-org">Organisasi Siswa Intra Sekolah (OSIS) SMK Negeri 3 Batam</div>
+                <div class="tl-period">
+                  <i class="bi bi-calendar3 me-1"></i>Feb 2021 – Aug 2022
+                </div>
+              </div>
+            </div>
+            <p>Managed school information systems and digital content for events.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!--CONTACT-->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title reveal">CONTACT</h2>
+    <div class="row gy-4">
+
+      <div class="col-lg-12 mx-auto reveal">
+        <div class="contact-card">
+          <h5 class="mb-4">GET IN TOUCH</h5>
+          <div class="contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <a href="mailto:m.zulfikarrusidi@gmail.com">m.zulfikarrusidi@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-linkedin"></i>
+            <a href="https://www.linkedin.com/in/muhammad-zulfikar-rusidi-hasibuan-231195294"
+               target="_blank">Muhammad Zulfikar Rusidi Hasibuan</a>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-github"></i>
+            <a href="https://github.com/zulpicher" target="_blank">zulpicher</a>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>Batam, Riau Islands, Indonesia</span>
+          </div>
+          <a href="static/pdf/cv zulfikar rusidi.pdf" download class="btn-outline-white mt-2">
+            <i class="bi bi-download me-2"></i>Download CV
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--FOOTER-->
+<footer>
+  <p class="mb-0">© 2025 Muhammad Zulfikar Rusidi Hasibuan. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ── ACTIVE NAV LINK ON SCROLL ── */
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('#mainNav .nav-link:not(.dropdown-toggle)');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+    const projToggle = document.querySelector('#projectDropdown');
+    if (projToggle) {
+      if (current === 'project') {
+        projToggle.classList.add('active');
+      } else {
+        projToggle.classList.remove('active');
+      }
+    }
+  });
+
+  document.querySelectorAll('#navMenu .nav-link, #navMenu .dropdown-item').forEach(link => {
+    link.addEventListener('click', () => {
+      const menu = document.getElementById('navMenu');
+      if (menu.classList.contains('show')) {
+        bootstrap.Collapse.getInstance(menu)?.hide();
+      }
+    });
+  });
+
+
+  document.querySelector('#projectDropdown')?.addEventListener('click', function(e) {
+
+    e.preventDefault();
+  });
+
+  document.querySelectorAll('.content-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      document.querySelectorAll('.content-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.tab-pane-content').forEach(pane => {
+        if (pane.id === 'tab-' + target) pane.classList.add('active');
+        else if (pane.id.startsWith('tab-')) pane.classList.remove('active');
+      });
+    });
+  });
+</script>
+</body>
+</html>
