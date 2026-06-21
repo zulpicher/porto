@@ -364,9 +364,10 @@ section { padding: 90px 0; }
 
 .project-img-wrap-horizontal {
   position: relative;
-  width: 190px;
-  min-width: 190px;
-  height: 268px;
+  width: 58%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1.41;
+  height: auto;
   overflow: hidden;
   border-radius: 0px;
   flex-shrink: 0;
@@ -392,22 +393,23 @@ section { padding: 90px 0; }
 
 .project-body-horizontal {
   flex: 1;
+  min-width: 0;
   padding: 4px 6px;
 }
 
 .project-body-horizontal h5 {
-  font-weight: 800;
+  font-weight: bold;
   color: var(--blue-main);
-  font-size: 1.05rem;
-  line-height: 1.4;
+  font-size: 1.3rem;
+  line-height: 1.3;
   margin-bottom: 10px;
 }
 
 .project-body-horizontal p {
-  font-size: .88rem;
+  font-size: 1.25rem;
   color: var(--text-dark);
-  line-height: 1.75;
-  margin-bottom: 14px;
+  line-height: 1.65;
+  margin-bottom: 16px;
 }
 
 .tag {
@@ -415,10 +417,10 @@ section { padding: 90px 0; }
   background: #e8ecff;
   color: var(--blue-main);
   border-radius: 20px;
-  padding: 5px 14px;
-  font-size: .75rem;
+  padding: 4px 12px;
+  font-size: .900rem;
   font-weight: 700;
-  margin: 4px 6px 0 0;
+  margin: 4px 5px 0 0;
 }
 
 @media (max-width: 768px) {
